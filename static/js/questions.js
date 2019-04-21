@@ -3,24 +3,31 @@ function saveToStorage(json, key = 'data') {
 }
 
 function loadFromStorage(key = 'data') {
-	return JSON.parse(localStorage.getItem(key));
+	if (localStorage.getItem(key)) {
+		return JSON.parse(localStorage.getItem(key));
+	}
+	return false;
 }
 
 function loadQuestions() {
 	$.get('/static/questions.json', function(data) {
 		saveToStorage(data, 'questions');
+		makeData();
 	});
 }
 
+function scaleDays(milisec, maxDays = 254, deadLine = 2) {
+	return Math.round((milisec * maxDays) / (deadLine * 3600 * 1000));
+}
 // make the data for updation.
 // this data will be sent to model
 function makeData() {
-	questions = loadFromStorage('questions');
+	var questions = loadFromStorage('questions');
 	var obj = {};
 	for (var id in questions) {
 		obj[id] = {
-			seen: 0,
-			correct: 0,
+			seen: 4,
+			correct: 4,
 			incorrect: 0,
 			delta: 0,
 			lastSeen: null
@@ -55,7 +62,7 @@ function incDelta(id) {
 	var prevLastSeen = data[id]['lastSeen'];
 	var curTime = new Date();
 	if (!(prevLastSeen == null)) {
-		data[id]['delta'] = Math.abs(curTime - new Date(prevLastSeen));
+		data[id]['delta'] = scaleDays(Math.abs(curTime - new Date(prevLastSeen)));
 	} else {
 		data[id]['delta'] = 0;
 	}

@@ -2,14 +2,161 @@
 block content %}
 <div class="container">
 	<div class="row">
+		<!-- question 1 -->
 		<div class="col-sm-12">
 			<div class="card">
 				<div class="card-body">
-					<h1 id="question" class="text-muted">Question</h1>
+					<h1 data-id="1" id="question-1" class="text-muted">
+						8085 is a __ bit processor?.
+					</h1>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<label for="answer">Your Answer</label>
+							<input
+								type="text"
+								class="form-control"
+								id="answer-1"
+								placeholder="Your answer"
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-12"></div>
+		<!-- question 2 -->
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<h1 data-id="2" id="question-2" class="text-muted">
+						8086 is a __ bit processor.
+					</h1>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<label for="answer">Your Answer</label>
+							<input
+								type="text"
+								class="form-control"
+								id="answer-2"
+								placeholder="Your answer"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- question 3 -->
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<h1 data-id="3" id="question-3" class="text-muted">
+						___ pin in 8085 is ALE.
+					</h1>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<label for="answer-3">Your Answer</label>
+							<input
+								type="text"
+								class="form-control"
+								id="answer-3"
+								placeholder="Your answer"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- question 4 -->
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<h1 data-id="4" id="question-4" class="text-muted">
+						Who is prime of india?
+					</h1>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<label for="answer-4">Your Answer</label>
+							<input
+								type="text"
+								class="form-control"
+								id="answer-4"
+								placeholder="Your answer"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-2">
+			<button class="btn btn-primary" id="submit">Submit</button>
+		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div
+	class="modal fade"
+	id="modal-results"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					aria-label="Close"
+				>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Question</th>
+							<th scope="col">Probability</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>8085 is a __ bit processor?.</td>
+							<td id="p-1" class="text-info">0</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>8086 is a __ bit processor.</td>
+							<td id="p-2" class="text-info">0</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>___ pin in 8085 is ALE.</td>
+							<td id="p-3" class="text-info">0</td>
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td>Who is prime of india?</td>
+							<td id="p-4" class="text-info">0</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/static/js/ejs.js"></script>
+<script src="/static/js/practise.js"></script>
 {% endblock %}
