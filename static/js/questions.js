@@ -62,3 +62,22 @@ function incDelta(id) {
 	data[id]['lastSeen'] = curTime;
 	saveToStorage(data, 'data');
 }
+
+function getPredictions() {
+	var data = loadFromStorage('data');
+	var req = [];
+	for (var id in data) {
+		req.push({
+			id: id,
+			data: [
+				data[id].seen,
+				data[id].correct,
+				data[id].incorrect,
+				data[id].delta
+			]
+		});
+	}
+	$.post('/predict', { data: JSON.stringify(req) }, function(data) {
+		saveToStorage(data, 'preds');
+	});
+}

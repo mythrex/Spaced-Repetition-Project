@@ -62,15 +62,15 @@ def practise():
 def predict():
     K.clear_session()
     model = load_model('space_rep_lr.h5')
-    data = request.form.getlist("data[]")
+    data = json.loads(request.form["data"])
     X = []
     for d in data:
-        X.append(json.loads(d)["data"])
+        X.append(d["data"])
     preds = model.predict(np.array(X))
     resp = []
     for i in range(len(preds)):
         resp.append({
-            "id": json.loads(data[i])["id"],
+            "id": data[i]["id"],
             "pred": int(preds[i][0]*100)})
     return make_response(jsonify(resp)), 200
 
