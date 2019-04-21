@@ -2,8 +2,15 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
-# from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, make_response, jsonify
+import numpy as np
+import keras.backend as K
+import keras
+from keras.layers import Dense
+from keras.models import Sequential
+import os
+from keras.models import load_model
+import json
 import logging
 from logging import Formatter, FileHandler
 from forms import *
@@ -44,6 +51,28 @@ def login_required(test):
 @app.route('/')
 def home():
     return render_template('pages/placeholder.home.html')
+
+
+@app.route('/practise')
+def practise():
+    return render_template('pages/practise.html')
+
+# predict
+@app.route('/predict', methods=['POST'])
+def predict():
+    K.clear_session()
+    model = load_model('space_rep_lr.h5')
+    data = request.form.getlist("data[]")
+    X = []
+    for d in data:
+        X.append(json.loads(d)["data"])
+    preds = model.predict(np.array(X))
+    resp = []
+    for i in range(len(preds)):
+        resp.append({
+            "id": json.loads(data[i])["id"],
+            "pred": int(preds[i][0]*100)})
+    return make_response(jsonify(resp)), 200
 
 # Error handlers.
 

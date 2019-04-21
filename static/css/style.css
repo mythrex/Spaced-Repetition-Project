@@ -21,6 +21,11 @@ p {
     font-family: "Open Sans", sans-serif;
 }
 
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .card {
     background: white;
 }
