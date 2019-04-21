@@ -1,0 +1,78 @@
+#dropper {
+    background: transparent;
+    border: 5px dashed #777;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 3em;
+    color: #777;
+    margin: 10px;
+    height: 500px;
+}
+
+.dz-default {
+    display: flex;
+    height: 100%;
+    margin: 0px !important;
+}
+
+#dropper span {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin: auto;
+}
+
+#upload-image-area {
+    background: #aaa;
+    margin: 10px;
+    display: flex;
+    position: relative;
+}
+
+#upload-image-area > .fa.fa-image {
+    font-size: 10em;
+    margin: auto;
+}
+
+#upload-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 400;
+}
+
+.btn-navigator-group {
+    position: absolute;
+    z-index: 100;
+    right: 10px;
+    height: 90px;
+    width: 90px;
+}
+
+.btn-navigator-group .fa-chevron-up {
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
+
+.btn-navigator-group .fa-chevron-left {
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+
+.btn-navigator-group .fa-chevron-right {
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+
+.btn-navigator-group .fa-chevron-down {
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+}
+
+.navigator {
+    font-size: 30px;
+}

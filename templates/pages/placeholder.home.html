@@ -1,0 +1,32 @@
+{% extends 'layouts/main.html' %} {% block title %}Home{% endblock %} {% block
+content %}
+
+<div class="container">
+	<div class="row d-flex">
+		<div class="m-auto col-sm-12 col-md-6 col-lg-4">
+			<div class="card">
+				<div class="card-body">
+					<a class="choice text-secondary" href="/revise">
+						<p class="text-center"><span class="fa fa-clock"></span></p>
+						<p class="text-center">Revise</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="m-auto col-sm-12 col-md-6 col-lg-4">
+			<div class="card">
+				<div class="card-body">
+					<a class="choice text-info" href="/practise">
+						<p class="text-center">
+							<span class="fa fa-dumbbell"></span>
+						</p>
+						<p class="text-center">Practise</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
