@@ -1,0 +1,18 @@
+{
+	"1": {
+		"question": "8085 is a __ bit processor?.",
+		"answer": "8"
+	},
+	"2": {
+		"question": "8086 is a __ bit processor.",
+		"answer": "16"
+	},
+	"3": {
+		"question": "___ pin in 8085 is ALE.",
+		"answer": "30"
+	},
+	"4": {
+		"question": "Who is prime of india?",
+		"answer": "modi"
+	}
+}
