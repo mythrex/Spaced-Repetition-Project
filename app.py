@@ -57,6 +57,11 @@ def home():
 def practise():
     return render_template('pages/practise.html')
 
+
+@app.route('/revise')
+def revise():
+    return render_template('pages/revise.html')
+
 # predict
 @app.route('/predict', methods=['POST'])
 def predict():

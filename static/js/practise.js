@@ -44,12 +44,13 @@ $(function() {
 				incIncorrect(i + 1);
 			}
 		}
-		getPredictions();
-		var preds = loadFromStorage('preds');
-		console.log(preds);
-		for (var i = 0; i < preds.length; i++) {
-			$(`#p-${i + 1}`).text(preds[i]['pred']);
-		}
-		$('#modal-results').modal('show');
+		getPredictions(function() {
+			var preds = loadFromStorage('preds');
+			console.log(preds);
+			for (var i = 0; i < preds.length; i++) {
+				$(`#p-${i + 1}`).text(preds[i]['pred']);
+			}
+			$('#modal-results').modal('show');
+		});
 	});
 });

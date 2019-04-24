@@ -70,7 +70,7 @@ function incDelta(id) {
 	saveToStorage(data, 'data');
 }
 
-function getPredictions() {
+function getPredictions(cb) {
 	var data = loadFromStorage('data');
 	var req = [];
 	for (var id in data) {
@@ -85,6 +85,8 @@ function getPredictions() {
 		});
 	}
 	$.post('/predict', { data: JSON.stringify(req) }, function(data) {
+		console.log('>>>>>>>>> AJAX >>>>>>>', data);
 		saveToStorage(data, 'preds');
+		cb();
 	});
 }
